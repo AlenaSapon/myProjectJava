@@ -4,9 +4,7 @@ public class User {
     //int Id;
     String userName;
     //добавить пароль
-    void getEventList(String userName){
-
-    };
+   // void getEventList(String userName){};
 public User (String userName){
     this.userName = userName;
 
@@ -15,8 +13,5 @@ public User (String userName){
         return userName;
     }
 
-        public void setUserName(String userName) {
-        this.userName = userName;
-    }
 
 }

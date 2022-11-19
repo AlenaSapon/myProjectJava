@@ -16,7 +16,7 @@ public class Event {
     protected Vendor vendor; //subclass
 
     protected String [] eventDescription;
-
+    protected String eventDescription2;
     protected BigDecimal price;
     //int Likes=0;
     //int eventCapacity;
@@ -34,6 +34,7 @@ public class Event {
         this.eventDescription[1]=eventDescription;
         this.eventDescription[2]=eventPlace;
         this.price = price;
+        vendor.eventCounter++;
             };
 
         public Event(Vendor vendor,String[] eventDescription, BigDecimal price){
@@ -64,5 +65,7 @@ public class Event {
     }
 
 
+    public String EventDescription() { return eventDescription2;
+    }
 }
 

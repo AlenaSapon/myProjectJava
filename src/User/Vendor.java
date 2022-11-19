@@ -12,11 +12,8 @@ public class Vendor extends User {
     public int eventCounter;
 
    // конструкторы вендоров
-
-
    public Vendor (String organizationName,  String address, String phone){
        super(organizationName);
-       this.setOrganizationName(organizationName);
        this.setAddress(address);
        this.setPhone(phone);
        this.eventCounter=0;
@@ -36,35 +33,17 @@ public class Vendor extends User {
    }
 
     //геттеры сеттеры
-    public String getOrganizationName() {
-        return userName;
-    }
-    public void setOrganizationName(String organizationName) {
-        this.userName = organizationName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
+    public String getAddress() {return address;}
     public void setAddress(String address) {
         this.address = address;
     }
 
-
     public String getPhone() {
         return phone;
     }
-
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public int getEventCounter() {
-        return eventCounter;
-    }
 
-    public void setEventCounter(int eventCounter) {
-        this.eventCounter = eventCounter;
-    }
 }
