@@ -13,119 +13,56 @@ import java.math.BigDecimal;
 * */
 public class Event {
     int Id;
-    Vendor Vendor; //subclass
+    protected Vendor vendor; //subclass
 
-    //String [] eventDescription добавить;
-    String eventName;//убрать
-    String eventDescription;//убрать
-    BigDecimal price;
-    boolean isFree; //no payment is needed
-    String eventPlace;//убрать
-    boolean isActual=true;
-    int Likes=0; //?
-    //Инициализируй значениями в конструкторе.
-    int eventCapacity;
+    protected String [] eventDescription;
+
+    protected BigDecimal price;
+    //int Likes=0;
+    //int eventCapacity;
+
+
 
  //overloading of constructors
-    void Event(){};
-//конструкторы пишут без void
-    public Event(String eventName, BigDecimal price, String eventPlace, int eventCapacity){
-        //Здесь заменить String eventName на String [] eventDescription, как в main;
-        //тогда в конструктор нужно добавить:
-        /*
-        * this.eventDescription=eventDescription; и сделать общий геттер
-        * */
-        this.setEventName(eventName);
-        this.setEventPlace(eventPlace);
-        this.setPrice(price);
-        this.setEventCapacity(eventCapacity);
-    };
-    //Статический метод можно сделать по подобию стринга:
-    static Event makeEventFromData(Vendor vendor, String eventName, BigDecimal price, String eventPlace, int eventCapacity) {
-        Event newEvent = new Event(eventName, price, eventPlace, eventCapacity);
-        newEvent.Vendor=vendor;
-        return newEvent;
-    }
+    Event(){};
+
+    public Event(Vendor vendor, String eventName, String eventDescription, String eventPlace, BigDecimal price){
+
+        this.vendor=vendor;
+        this.eventDescription = new String[3];
+       this.eventDescription[0]=eventName;
+        this.eventDescription[1]=eventDescription;
+        this.eventDescription[2]=eventPlace;
+        this.price = price;
+            };
+
+        public Event(Vendor vendor,String[] eventDescription, BigDecimal price){
+
+        this.vendor=vendor;
+        this.eventDescription = eventDescription;
+        this.price = price;
+        };
+    //static method
+        static void updateEvent(Event event, Vendor vendor, String[] eventName, BigDecimal price) {
+            if(vendor!=null){ event.vendor = vendor;}
+            if (eventName!=null){event.eventDescription = eventName;}
+            if (price!=null){event.price = price;}
+                       }
+
     //И тогда можно делать Event так:
     //Event event= Event.makeEventFromData(vendor, eventName, price, eventPlace, eventCapacity);
 
-
-
-    /*
-    * public String getEventDescription() {
-        return "Название мероприятия: "+eventDescription[0]+", краткое описание:" + eventDescription[1]+ ", место проведения: " +  eventDescription[2];
-    }
-    * */
-    //и у вендора тоже все таким образом сократить
-
-    // methods
-    void updateEvent(){
-    };
-
-    //getters and setters
-    public String getEventName() {
-        return eventName;
+    public String getEventDescription() {
+        String str = this.vendor.toString();
+            return str + "\nEvent name: "+eventDescription[0]+"," +
+                    "\nShort description: " + eventDescription[1]+ "," +
+                    "\nEvent takes place: " +  eventDescription[2];
     }
 
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
-    }
-
-    public BigDecimal getPrice() {
+       public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
 
-    public boolean isActual() {
-        return isActual;
-    }
-
-    public void setActual(boolean actual) {
-        isActual = actual;
-    }
-
-        public String getEventDescription() {
-        return eventDescription;
-    }
-    public String getEventPlace() {
-        return eventPlace;
-    }
-
-
-    public void setEventDescription(String eventDescription) {
-        this.eventDescription = eventDescription;
-    }
-
-    public int getCounterLikes() {
-        return Likes;
-    }
-
-    public void setCounterLikes(int counterLikes) {
-        this.Likes = counterLikes;
-    }
-
-    public boolean isFree() {
-        return isFree;
-    }
-
-    public void setFree(boolean free) {
-        isFree = free;
-    }
-
-    public int getEventCapacity() {
-        return eventCapacity;
-    }
-
-    public void setEventCapacity(int eventCapacity) {
-        this.eventCapacity = eventCapacity;
-    }
-
-
-
-    public void setEventPlace(String eventPlace) {
-        this.eventPlace = eventPlace;
-    }
 }
+

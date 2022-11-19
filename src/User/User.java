@@ -1,18 +1,21 @@
 package User;
 
 public class User {
-    int Id;
+    //int Id;
     String userName;
     //добавить пароль
     void getEventList(String userName){
 
     };
+public User (String userName){
+    this.userName = userName;
 
+};
     public String getUserName() {
         return userName;
     }
 
-    public void setUserName(String userName) {
+        public void setUserName(String userName) {
         this.userName = userName;
     }
 

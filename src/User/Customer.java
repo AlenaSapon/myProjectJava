@@ -8,6 +8,8 @@ public class Customer extends User {
     void likeEvent(Event event){
         return;
     };
+
+    Customer (String userName){super(userName);};
     String showLikedEvents(){
         //немного переделал:
         String buffer="Пролайканные ивенты:";

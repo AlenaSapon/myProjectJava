@@ -2,41 +2,45 @@ package User;
 
 import Event.Event;
 
+import java.math.BigDecimal;
+
 public class Vendor extends User {
     static int role = 1;
-    String organizationName;
+
     String address;
-    String personToContact;
     String phone;
-    int eventCounter = 0;
+    public int eventCounter;
 
    // конструкторы вендоров
-   void Vendor(){};
-   void Vendor(String organizationName, String phone, int eventCounter){
-       this.setOrganizationName(organizationName);
-       this.setPhone(phone);
-       this.setEventCounter(0);//?
-   };
-   void Vendor (String organizationName,  String address, String personToContact, String phone, int eventCounter){
+
+
+   public Vendor (String organizationName,  String address, String phone){
+       super(organizationName);
        this.setOrganizationName(organizationName);
        this.setAddress(address);
-       this.setPersonToContact(personToContact);
        this.setPhone(phone);
-       this.setEventCounter(0);
+       this.eventCounter=0;
    }
 
     //что может делать вендор с иветами
-   int updateCounter(){
-       int counter = this.eventCounter+1;
-       return counter;
+   public Event createEvent(String[] eventDescription, BigDecimal price){
+       Event event = new Event(this, eventDescription, price);
+       eventCounter++;
+       return event;
+          };
+
+  @Override// showVendorDetails()
+   public String toString(){
+       String details = "Vendor name: " + this.userName + ", Address: " + this.address + ", phone: " + this.phone +".";
+       return details;
    }
 
     //геттеры сеттеры
     public String getOrganizationName() {
-        return organizationName;
+        return userName;
     }
     public void setOrganizationName(String organizationName) {
-        this.organizationName = organizationName;
+        this.userName = organizationName;
     }
 
     public String getAddress() {
@@ -47,13 +51,6 @@ public class Vendor extends User {
         this.address = address;
     }
 
-    public String getPersonToContact() {
-        return personToContact;
-    }
-
-    public void setPersonToContact(String personToContact) {
-        this.personToContact = personToContact;
-    }
 
     public String getPhone() {
         return phone;
