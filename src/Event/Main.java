@@ -1,37 +1,54 @@
 package Event;
 
+import User.Admin;
 import User.Vendor;
 
 import java.math.BigDecimal;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Welcome to EventBY!\n");
+        /*System.out.println("Welcome to EventBY!\n");
+        Scanner in = new Scanner(System.in);
+        System.out.print("Do you want to continue as...\n 1.Vendor\n 2.User\n 3.Admin\n Your choice: ");
+        int choice = in.nextInt();
+        while (!(choice == 1 || choice== 2 || choice == 3)) {
+            System.out.println("Incorrect entered value: " + in.nextInt() + ". Expected: 1, 2 or 3. \nYour choice:");
+            in.next();
+        }
+        switch (choice){
+            case 1: {System.out.println("You are logged in as Vendor.");}; break;
+            case 2: {System.out.println("You are logged in as User.");}; break;
+            case 3: {System.out.println("You are logged in as Admin.");}; break;
+        }*/
+
         Vendor vendor1 = new Vendor("Vendor1", "Heaven 7", "+123456789");
         Vendor vendor2 = new Vendor("Vendor2", "Earth 7", "+987654321");
+        Vendor vendor3 = new Vendor("Vendor3", "Hell 7", "+1234567898");
 
-        String[] eventDescription1 = {"Wedding","Wedding description","Av. Garden 102"};
+        String[] eventDescription1 = {"Wedding", "Wedding description", "Av. Garden 102"};
         Event event1 = vendor1.createEvent(eventDescription1, new BigDecimal(100.25));
         System.out.println(event1.getEventDescription());
         System.out.println("Price: " + event1.getPrice());
-        System.out.println("Amount of events of the vendor '" + vendor1.getUserName() + "' is " + vendor1.eventCounter+"\n");
+        System.out.println("Amount of events of the vendor '" + vendor1.getUserName() + "' is " + vendor1.eventCounter + "\n");
 
-        String[] eventDescription2 = {"Big Dance","We help you to be as big bang!","Lenina 52"};
+        String[] eventDescription2 = {"Big Dance", "We help you to be as big bang!", "Lenina 52"};
         Event event2 = vendor1.createEvent(eventDescription2, new BigDecimal(100000));
         System.out.println(event2.getEventDescription());
         System.out.println("Price: " + event2.getPrice());
-        System.out.println("Amount of events of the vendor '" + vendor1.getUserName() + "' is " + vendor1.eventCounter+"\n");
+        System.out.println("Amount of events of the vendor '" + vendor1.getUserName() + "' is " + vendor1.eventCounter + "\n");
 
         //another way to create event
         System.out.println("Another way to create vendor and Event using class 'Vendor' in class 'Event' as field");
-        Event event3 = new Event(vendor1, "Wild life", "Wild life description" , "Nordic Forest 5", new BigDecimal(450) );
+        Event event3 = new Event(vendor1, "Wild life", "Wild life description", "Nordic Forest 5", new BigDecimal(450));
         System.out.println(event3.getEventDescription());
-        System.out.println("Price: " + event3.getPrice()+"\n");
+        System.out.println("Price: " + event3.getPrice() + "\n");
 
-        Event event4 = new Event(vendor2, "Simple event on the Earth", "Simple event description" , "Earth planet 003", new BigDecimal(250) );
+        Event event4 = new Event(vendor2, "Simple event on the Earth", "Simple event description", "Earth planet 003", new BigDecimal(250));
         System.out.println(event4.getEventDescription());
         System.out.println("Price: " + event4.getPrice());
 
-        System.out.println("Amount of events of the vendor '" + vendor2.getUserName() + "' is " + vendor2.eventCounter+"\n");
+        Admin.showVendorsList();
+        Event.showEventsList();
+
     }
 }
