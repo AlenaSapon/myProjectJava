@@ -33,7 +33,8 @@ public class Main {
             } else {
                 System.out.println("Incorrect entered value: " //it is incorrect because you read next input: + in.nextInt()  
                 + ". Expected: 1, 2 or 3. \nYour choice:");
-            }           
+            }
+            in.next();
         } while (true);
         //but better way to use: String str = in.next(); try{choice=Integer.parseInt(str)} catch(NumberFormatException e) {choice=0;}
         //And in this case you can print incorrect input: str;
