@@ -57,6 +57,8 @@ public class Event {
         System.out.println("************ EVENT LIST ***************:");
         for (int i = 0; i < Events.length; i++) {
             System.out.println(Events[i]);
+            //When you print your Event, it is Object.toString() method is called.
+            //You should owerride toString() in your Event class.
         }
         System.out.println("************* END of list ***************\n");
     }
