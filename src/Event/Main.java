@@ -33,5 +33,6 @@ public class Main {
         System.out.println("Price: " + event4.getPrice());
 
         System.out.println("Amount of events of the vendor '" + vendor2.getUserName() + "' is " + vendor2.eventCounter+"\n");
+        System.out.println();
     }
 }
