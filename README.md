@@ -1,2 +1,2 @@
 # myProjectJava
-A added redme
+I add redme
